@@ -1,7 +1,7 @@
 resource "aws_security_group" "ec2_sg" {
   name        = "ec2_security_group"
   description = "Security group for EC2 instances"
-  vpc_id      = aws_vpc.main.id
+  vpc_id      = aws_vpc.default_vpc.id
   # Incomming Rules
   ingress {
     from_port   = 22
