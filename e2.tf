@@ -4,7 +4,7 @@ resource "aws_instance" "appserver" {
   instance_type          = var.instance_type["dev"]
   iam_instance_profile   = aws_iam_instance_profile.ec2_instance_profile.name
   # Subnet Configuration
-  subnet_id              = aws_subnet.public_subnet.id
+  subnet_id              = aws_subnet.private_subnet.id
   # Security Group
   vpc_security_group_ids = [aws_security_group.ec2_sg.id]
   # EBS Storage Configuration
