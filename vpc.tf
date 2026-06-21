@@ -5,7 +5,7 @@ resource "aws_vpc" "default_vpc" {
   tags                 = var.tags
 }
 
-resource "aws_subnet" "public_subnet" {
+resource "aws_subnet" "private_subnet" {
   vpc_id                  = aws_vpc.default_vpc.id
   cidr_block              = "10.0.1.0/24"
   availability_zone       = "ap-south-1a"
@@ -27,6 +27,6 @@ resource "aws_route_table" "public_rt" {
 }
 
 resource "aws_route_table_association" "public_rt_assoc" {
-    subnet_id      = aws_subnet.public_subnet.id
+    subnet_id      = aws_subnet.private_subnet.id
     route_table_id = aws_route_table.public_rt.id
 }
