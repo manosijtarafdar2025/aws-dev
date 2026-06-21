@@ -2,6 +2,7 @@ resource "aws_instance" "appserver" {
   count                  = var.ec2_instance_count["dev"]
   ami                    = var.instance_os["amazon_linux_2023"]
   instance_type          = var.instance_type["dev"]
+  iam_instance_profile   = aws_iam_instance_profile.ec2_instance_profile.name
   # Subnet Configuration
   subnet_id              = aws_subnet.public_subnet.id
   # Security Group
