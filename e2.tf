@@ -10,7 +10,7 @@ resource "aws_instance" "appserver" {
   # EBS Storage Configuration
   root_block_device {
     encrypted   = true
-    kms_key_id  = aws_kms_key.ec2_key.arn
+    # kms_key_id  = aws_kms_key.ec2_key.arn
     volume_size = 8
     volume_type = "gp3"
   }
